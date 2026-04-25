@@ -1,50 +1,71 @@
-# Welcome to your Expo app 👋
+# Sayı Bilmece
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Sayı Bilmece, 4 haneli gizli bir şifreyi tahmin etmeye dayanan React Native / Expo tabanlı bir sayı bulmaca oyunudur. Oyuncu her tahminden sonra aldığı renkli geri bildirimlerle doğru rakamları ve doğru pozisyonları bulmaya çalışır.
 
-## Get started
+## Amaç
 
-1. Install dependencies
+Oyunun amacı, rakamları birbirinden farklı olan 4 haneli gizli sayıyı mümkün olan en az tahminle ve en kısa sürede bulmaktır.
 
-   ```bash
-   npm install
-   ```
+## Oyun Modları
 
-2. Start the app
+- **Açık Mod:** Her tahminde rakamların durumu doğrudan gösterilir.
+- **Uzman Mod:** Tahmin edilen sayı açıkça listelenir, ancak rakam takip paneli kapalıdır. Sonuçlar yalnızca genel işaretlerle okunur.
+- **Günlük Şifre:** Aynı gün içinde herkes için aynı gizli sayı üretilir.
+- **Eşli Oyun:** Bluetooth bağlantısı üzerinden iki oyunculu oyun akışı için temel yapı içerir.
 
-   ```bash
-    npx expo start
-   ```
+## Özellikler
 
-In the output, you'll find options to open the app in a
+- 4 haneli, rakamları tekrarsız gizli sayı üretimi
+- Günlük şifre üretimi
+- Tahmin geçmişi
+- Renkli sonuç sistemi
+- Skor, süre ve en iyi skor takibi
+- Tek kullanımlık ipucu sistemi
+- Açık modda kullanılan rakamlar paneli
+- Uzman modda bilgi sızıntısını önleyen kapalı rakam paneli
+- Neon terminal / şifre kasası teması
+- Hareketli arka plan sinyal çizgileri
+- Tahmin sonucu giriş animasyonu
+- Web için hafif ses geri bildirimi
+- Mobil için titreşim geri bildirimi
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Renk Kuralları
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Yeşil çerçeve:** Rakam doğru ve pozisyon doğru
+- **Sarı çerçeve:** Rakam doğru ama pozisyon yanlış
+- **Soluk/gri:** Rakam gizli sayıda yok
 
-## Get a fresh project
+## Kullanılan Teknolojiler
 
-When you're ready, run:
+- React
+- React Native
+- Expo
+- TypeScript
+- React Native Web
+- Expo Vector Icons
+- Webpack
+- react-native-bluetooth-serial-next
+
+## Çalıştırma
+
+Bağımlılıklar yüklüyse web sürümü şu komutla çalışır:
 
 ```bash
-npm run reset-project
+npm run web
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Yerel ağdaki başka cihazlardan erişmek için aynı ağda şu format kullanılır:
 
-## Learn more
+```text
+http://BILGISAYARIN_YEREL_IP_ADRESI:19006
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Geliştirme Notları
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Web geliştirme sunucusu `scripts/start-web.js` üzerinden çalışır. Bu yapı, Expo CLI'nin bazı yeni Node sürümleriyle yaşadığı port bulma sorununu aşmak ve oyunu yerel ağda erişilebilir yapmak için kullanılır.
 
-## Join the community
+Eski Expo web komutu hâlâ saklanmıştır:
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run web:expo
+```
